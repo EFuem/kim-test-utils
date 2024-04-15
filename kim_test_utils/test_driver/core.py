@@ -37,7 +37,6 @@ from typing import Any, Optional, List, Union, Dict
 from abc import ABC, abstractmethod
 from kim_property import kim_property_create, kim_property_modify, kim_property_dump
 import kim_edn
-from kim_query import raw_query
 from tempfile import NamedTemporaryFile
 import os
 from warnings import warn
@@ -353,6 +352,7 @@ class CrystalGenomeTestDriver(KIMTestDriver):
                 The temperature in Kelvin
         """ 
         from crystal_genome_util import aflow_util
+        from kim_query import raw_query
         super()._setup(atoms)
         self.stoichiometric_species = stoichiometric_species        
         self.prototype_label = prototype_label
