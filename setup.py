@@ -14,7 +14,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     license="CDDL",
-    install_requires=["ase >= 3.19.0b1", "kim-property >= 2.5.8", "crystal-genome-util"],
+    install_requires=["ase >= 3.19.0b1", "kim-property >= 2.5.8"],
     classifiers=[
         "Development Status :: 4 - Beta"
         "License :: OSI Approved :: Common Development and Distribution License 1.0 (CDDL-1.0)",
