@@ -32,13 +32,11 @@ Helper classes for KIM Test Drivers
 """
 import numpy as np
 from ase import Atoms
-from ase.calculators.kim.kim import KIM
 from ase.calculators.calculator import Calculator
 from typing import Any, Optional, List, Union, Dict
 from abc import ABC, abstractmethod
 from kim_property import kim_property_create, kim_property_modify, kim_property_dump
 import kim_edn
-from crystal_genome_util import aflow_util
 from kim_query import raw_query
 from tempfile import NamedTemporaryFile
 import os
@@ -98,6 +96,7 @@ class KIMTestDriver(ABC):
             self.kim_model_name = None
         else:
             self.kim_model_name = model
+            from ase.calculators.kim.kim import KIM
             self._calc = KIM(self.kim_model_name)
         
         self._property_instances = "[]"
@@ -353,7 +352,7 @@ class CrystalGenomeTestDriver(KIMTestDriver):
             temperature_K:
                 The temperature in Kelvin
         """ 
-
+        from crystal_genome_util import aflow_util
         super()._setup(atoms)
         self.stoichiometric_species = stoichiometric_species        
         self.prototype_label = prototype_label
